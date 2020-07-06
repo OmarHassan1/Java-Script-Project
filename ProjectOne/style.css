@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+}
+.container {
+  margin: 20px auto;
+  width: 1200px;
+}
+.container .color-switcher {
+  list-style: none;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container .color-switcher li {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+.container .color-switcher li:first-child {
+  background-color: #c0392b;
+}
+.container .color-switcher li:nth-child(2) {
+  background-color: #16a085;
+}
+.container .color-switcher li:nth-child(3) {
+  background-color: #8e44ad;
+}
+.container .color-switcher li:nth-child(4) {
+  background-color: #2c3e50;
+}
+
+.container h3 {
+  color: #c0392b;
+}
+
+.container div {
+  background-color: #c0392b;
+  padding: 20px;
+  color: #fff;
+}
+.red .container h3 {
+  color: #c0392b;
+}
+.red .container div {
+  background-color: #c0392b;
+  padding: 20px;
+  color: #fff;
+}
+
+.green .container h3 {
+  color: #16a085;
+}
+.green .container div {
+  background-color: #16a085;
+  padding: 20px;
+  color: #fff;
+}
+
+.purple .container h3 {
+  color: #8e44ad;
+}
+.purple .container div {
+  background-color: #8e44ad;
+  padding: 20px;
+  color: #fff;
+}
+.black .container h3 {
+  color: #2c3e50;
+}
+.black .container div {
+  background-color: #2c3e50;
+  padding: 20px;
+  color: #fff;
+}
