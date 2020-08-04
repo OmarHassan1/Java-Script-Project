@@ -60,7 +60,7 @@ body {
   padding: 10px;
 }
 .todo-container .tasks-content > span:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .todo-container .tasks-content .task-box .delete {
   float: right;
@@ -105,4 +105,28 @@ body {
 }
 .task-stats .tasks-completed span {
   background-color: #03a9f4;
+}
+
+.deleteAll {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+.deleteAllTasks {
+  color: #fff;
+  padding: 10px;
+  background-color: #e91e63;
+  border-radius: 5px;
+  width: 140px;
+  margin: 20px;
+}
+.deleteAllToggleTasks {
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  width: 140px;
+  margin: 20px;
+  background-color: orange;
 }

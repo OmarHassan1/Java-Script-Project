@@ -6,40 +6,42 @@ let theInput = document.querySelector(".add-task input"),
   tasksCount = document.querySelector(".tasks-count span"),
   tasksCompleted = document.querySelector(".tasks-completed span");
 
-//   Focus on Input Field
+// Focus on Input Field
 window.onload = () => {
   theInput.focus();
 };
 
-// Addimg The Task
-
 theAddButton.addEventListener("click", () => {
-  // If Input is Empty
-
-  if (theInput.value === "") {
-    Swal.fire("Input is Empty Please Add Value");
+  if (theInput.value == "") {
+    console.log("pleas add value");
   } else {
-    let mainSpan = document.createElement("span");
     // create span Element
+    let mainSpan = document.createElement("span");
+    let deleteElement = document.createElement("span");
+    // Create paragraph
+    let paragraphText = document.createElement("p");
+    // Text Value
     let text = document.createTextNode(theInput.value);
-    mainSpan.appendChild(text);
+    paragraphText.appendChild(text);
+    mainSpan.appendChild(paragraphText);
     mainSpan.classList.add("task-box");
+
     // -------------------------------------
     // Dom Element Create
-    let deleteElement = document.createElement("span");
     let deleteText = document.createTextNode("Delete");
     deleteElement.appendChild(deleteText);
     deleteElement.classList.add("delete");
     mainSpan.appendChild(deleteElement);
     tasksContainer.appendChild(mainSpan);
     // ====================================
-    console.log(`Done Add the Task :'${theInput.value}'`);
 
     swalSuccess();
     // Remove no-task-message
+    theInput.value = "";
+
     noTakssMsg.remove();
     // set input Valur
-    theInput.value = "";
+    theInput.focus();
   }
 });
 
@@ -49,4 +51,45 @@ function swalSuccess() {
     title: "Done",
     text: `The Tasks Content: ${theInput.value}`,
   });
+}
+
+function swalErorr() {
+  return Swal.fire({
+    icon: "error",
+    title: "Some Value",
+    text: `Please Enter New Task`,
+  });
+}
+
+document.addEventListener("click", (e) => {
+  // delete
+  if (e.target.className == "delete") {
+    e.target.parentNode.remove();
+    if (tasksContainer.childElementCount == 0) {
+      createNoTasks();
+    }
+  }
+
+  // Finish Class
+  if (e.target.classList == "task-box") {
+    e.target.classList.toggle("finished");
+  }
+});
+
+// Function To Create No Tasks Message
+function createNoTasks() {
+  // Create Message Span Element
+  let msgSpan = document.createElement("span");
+
+  // Create The Text Message
+  let msgText = document.createTextNode("No Tasks To Show");
+
+  // Add Text To Message Span Element
+  msgSpan.appendChild(msgText);
+
+  // Add Class To Message Span
+  msgSpan.className = "no-tasks-message";
+
+  // Append The Message Span Element To The Task Container
+  tasksContainer.appendChild(msgSpan);
 }
