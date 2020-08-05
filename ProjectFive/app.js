@@ -16,14 +16,13 @@ theAddButton.addEventListener("click", () => {
     console.log("pleas add value");
   } else {
     // create span Element
+
     let mainSpan = document.createElement("span");
     let deleteElement = document.createElement("span");
     // Create paragraph
-    let paragraphText = document.createElement("p");
     // Text Value
     let text = document.createTextNode(theInput.value);
-    paragraphText.appendChild(text);
-    mainSpan.appendChild(paragraphText);
+    mainSpan.appendChild(text);
     mainSpan.classList.add("task-box");
 
     // -------------------------------------
