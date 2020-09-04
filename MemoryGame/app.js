@@ -56,12 +56,14 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     secondBlock.classList.remove("is-flipped");
     firstBlock.classList.add("has-match");
     secondBlock.classList.add("has-match");
+    document.getElementById("correct").play();
   } else {
     tries.textContent = parseInt(tries.textContent) + 1;
     setTimeout(() => {
       firstBlock.classList.remove("is-flipped");
       secondBlock.classList.remove("is-flipped");
     }, duration);
+    document.getElementById("wrong").play();
   }
 }
 
