@@ -66,3 +66,18 @@ letterAndSpace.forEach((letter) => {
 
   lettersGuessContainer.appendChild(emptySpan);
 });
+
+// Handle Clicking on letter
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("letter-box")) {
+    e.target.classList.add("clicked");
+    // get Clicked Letter
+    let theClickedLetter = e.target.innerHTML.toLowerCase();
+
+    letterAndSpace.forEach((wordLetter, index) => {
+      if (theClickedLetter == wordLetter) {
+        console.log(`the Same letter ${index}`);
+      }
+    });
+  }
+});
