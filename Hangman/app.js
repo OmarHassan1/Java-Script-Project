@@ -57,6 +57,7 @@ document.querySelector(
 let lettersGuessContainer = document.querySelector(".letters-guess");
 
 let letterAndSpace = Array.from(randomValueName);
+
 letterAndSpace.forEach((letter) => {
   let emptySpan = document.createElement("span");
 
@@ -67,16 +68,25 @@ letterAndSpace.forEach((letter) => {
   lettersGuessContainer.appendChild(emptySpan);
 });
 
+let theStatus = false;
+
+let guessSpan = document.querySelectorAll(".letters-guess span");
 // Handle Clicking on letter
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("letter-box")) {
     e.target.classList.add("clicked");
+    let theChoseWord = Array.from(randomValueName.toLowerCase());
     // get Clicked Letter
     let theClickedLetter = e.target.innerHTML.toLowerCase();
-
-    letterAndSpace.forEach((wordLetter, index) => {
+    theChoseWord.forEach((wordLetter, wordIndex) => {
+      theStatus = true;
       if (theClickedLetter == wordLetter) {
-        console.log(`the Same letter ${index}`);
+        // loop in all guess span
+        guessSpan.forEach((span, spanIndex) => {
+          if (wordIndex === spanIndex) {
+            span.innerHTML = wordLetter;
+          }
+        });
       }
     });
   }
