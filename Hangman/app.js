@@ -68,16 +68,24 @@ letterAndSpace.forEach((letter) => {
   lettersGuessContainer.appendChild(emptySpan);
 });
 
-let theStatus = false;
+// Set Wrong Attempts
+let wrongAttempts = 0;
+
+// Select The Draw Element
+let theDraw = document.querySelector(".hangman-draw");
 
 let guessSpan = document.querySelectorAll(".letters-guess span");
 // Handle Clicking on letter
 document.addEventListener("click", (e) => {
+  // Set The Choose Status
+  let theStatus = false;
+
   if (e.target.classList.contains("letter-box")) {
     e.target.classList.add("clicked");
     let theChoseWord = Array.from(randomValueName.toLowerCase());
     // get Clicked Letter
     let theClickedLetter = e.target.innerHTML.toLowerCase();
+
     theChoseWord.forEach((wordLetter, wordIndex) => {
       theStatus = true;
       if (theClickedLetter == wordLetter) {
@@ -89,5 +97,13 @@ document.addEventListener("click", (e) => {
         });
       }
     });
+
+    if (theStatus !== true) {
+      // Increase The Wrong Attempts
+      wrongAttempts++;
+
+      // Add Class Wrong On The Draw Element
+      theDraw.classList.add(`wrong-${wrongAttempts}`);
+    }
   }
 });
