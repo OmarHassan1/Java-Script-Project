@@ -1,34 +1,36 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
   devServer: {
-    port: 8800,
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000,
   },
-
   module: {
     rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "bable-loader",
+          loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env"],
           },
         },
       },
+      {
+        test: /\.scss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlWebPackPlugin({
       template: "./src/views/index.html",
     }),
   ],
