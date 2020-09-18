@@ -7,6 +7,16 @@
 }
 
 .container {
+  .stop-click {
+    pointer-events: none;
+  }
+  .hide {
+    display: none;
+  }
+  .badge {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
   .quiz-content {
     display: flex;
     margin: 20px;
@@ -18,5 +28,10 @@
       padding: 0 30px;
       border-radius: 8px;
     }
+  }
+
+  .card {
+    margin: 50px 0;
+    //
   }
 }

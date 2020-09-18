@@ -6,6 +6,11 @@ export default class Questions {
         answers: { a: 4, b: 15, c: 16, d: 20 },
         correctAnswer: "a",
       },
+      {
+        title: "20 + 20 = ??",
+        answers: { a: 60, b: 80, c: 40, d: 20 },
+        correctAnswer: "c",
+      },
     ];
   }
 }
